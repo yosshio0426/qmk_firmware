@@ -18,8 +18,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
  * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |  _   |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                   | LOpt | LCMD |Space | / LClick/       \Enter \  | Tab  |  Fn  | TBD  |
- *                   |      |      |      |/       /         \      \ |      |      |      |
+ *                   | LOpt | 英数  |Space | / LClick/       \Enter \  | Tab  | かな  | TBD  |
+ *                   |      | LCMD |      |/       /         \      \ |      |  Fn  |      |
  *                   `----------------------------'           '------''--------------------'
  */
 
@@ -28,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   JP_Q,   JP_W,    JP_E,    JP_R,    JP_T,                     JP_Y,    JP_U,    JP_I,    JP_O,    JP_P,    JP_AT,
   KC_LCTL,  JP_A,   JP_S,    JP_D,    JP_F,    JP_G,                     JP_H,    JP_J,    JP_K,    JP_L,    JP_SCLN, JP_COLN,
   KC_LSFT,  JP_Z,   JP_X,    JP_C,    JP_V,    JP_B, JP_LBRC,  JP_RBRC,  JP_N,    JP_M,    JP_COMM, JP_DOT,  JP_SLSH, JP_BSLS,
-                        KC_LOPT, KC_LCMD, KC_SPC, KC_BTN1,          KC_ENT, KC_TAB, MO(_RAISE), XXXXXXX
+                 KC_LOPT, LCMD_T(KC_LNG2), KC_SPC, KC_BTN1,    KC_ENT, KC_TAB, LT(_RAISE, KC_LNG1), XXXXXXX
 ),
 
 /* RAISE
