@@ -1,6 +1,21 @@
 #include QMK_KEYBOARD_H
 #include "keymap_japanese.h"
 
+// mac日本語キーボードのunderscoreはJISキーボード的にはbackslash
+#define MJ_UNDS JP_BSLS
+// mac日本語キーボードでbackslashを入力するにはoption + yen
+#define MJ_BSLS A(JP_YEN)
+
+const key_override_t zero_pipe = ko_make_basic(MOD_MASK_SHIFT, JP_0, JP_PIPE);
+const key_override_t underscore_backslash = ko_make_basic(MOD_MASK_SHIFT, MJ_UNDS, MJ_BSLS);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+	&zero_pipe,
+	&underscore_backslash,
+	NULL // Null terminate the array of overrides!
+};
+
 enum layer_number {
   _DEFAULT = 0,
   _RAISE
@@ -10,13 +25,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* DEFAULT
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |  ^   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  |  -   |
+ * |  ^   |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  | 0(|) |  -   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | ESC  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  @   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  :   |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |  _   |
+ * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | _(\) |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LOpt | 英数  |Space | / LClick/       \Enter \  | Tab  | かな  | TBD  |
  *                   |      | LCMD |      |/       /         \      \ |      |  Fn  |      |
@@ -27,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   JP_CIRC,  JP_1,   JP_2,    JP_3,    JP_4,    JP_5,                     JP_6,    JP_7,    JP_8,    JP_9,    JP_0,    JP_MINS,
   KC_ESC,   JP_Q,   JP_W,    JP_E,    JP_R,    JP_T,                     JP_Y,    JP_U,    JP_I,    JP_O,    JP_P,    JP_AT,
   KC_LCTL,  JP_A,   JP_S,    JP_D,    JP_F,    JP_G,                     JP_H,    JP_J,    JP_K,    JP_L,    JP_SCLN, JP_COLN,
-  KC_LSFT,  JP_Z,   JP_X,    JP_C,    JP_V,    JP_B, JP_LBRC,  JP_RBRC,  JP_N,    JP_M,    JP_COMM, JP_DOT,  JP_SLSH, JP_BSLS,
+  KC_LSFT,  JP_Z,   JP_X,    JP_C,    JP_V,    JP_B, JP_LBRC,  JP_RBRC,  JP_N,    JP_M,    JP_COMM, JP_DOT,  JP_SLSH, MJ_UNDS,
                  KC_LOPT, LCMD_T(KC_LNG2), KC_SPC, KC_BTN1,    KC_ENT, KC_TAB, LT(_RAISE, KC_LNG1), XXXXXXX
 ),
 
