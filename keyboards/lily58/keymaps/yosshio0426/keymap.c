@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   JP_Q,   JP_W,    JP_E,    JP_R,    JP_T,                     JP_Y,    JP_U,    JP_I,    JP_O,    JP_P,    JP_AT,
   KC_LCTL,  JP_A,   JP_S,    JP_D,    JP_F,    JP_G,                     JP_H,    JP_J,    JP_K,    JP_L,    JP_SCLN, JP_COLN,
   KC_LSFT,  JP_Z,   JP_X,    JP_C,    JP_V,    JP_B, JP_LBRC,  JP_RBRC,  JP_N,    JP_M,    JP_COMM, JP_DOT,  JP_SLSH, MJ_UNDS,
-                 KC_LOPT, LCMD_T(KC_LNG2), KC_SPC, KC_BTN1,    KC_ENT, KC_TAB, LT(_RAISE, KC_LNG1), XXXXXXX
+                 KC_LOPT, LCMD_T(KC_LNG2), KC_SPC, KC_BSPC,    KC_TAB,  KC_ENT, LT(_RAISE, KC_LNG1), XXXXXXX
 ),
 
 /* RAISE
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______,  _______,  KC_WH_U,  KC_MS_U,  KC_WH_D,  _______,                      _______,  KC_HOME,    KC_UP,   KC_END,  KC_PGUP,  _______,
   _______,  _______,  KC_MS_L,  KC_MS_D,  KC_MS_R,  _______,                      _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,  _______,
   _______,  _______,  _______,  _______,  _______,   KC_DEL,  _______,  _______,  _______,  _______,  KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,
-                            _______, _______, KC_BSPC, KC_BTN2,                 _______, _______, _______, _______
+                            _______, _______, KC_BTN2, KC_BTN1,                 _______, _______, _______, _______
 ),
 };
 
